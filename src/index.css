@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:
+    ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --color-canvas: #f7f5f0;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1efe8;
+  --color-ink: #1c1a17;
+  --color-ink-soft: #4a453d;
+  --color-muted: #837c6d;
+  --color-border: #e4e0d5;
+  --color-border-strong: #d3cdbe;
+  --color-accent: #2f6d5f;
+  --color-accent-soft: #e6efe9;
+  --color-accent-strong: #234f45;
+  --color-warn: #9a5b12;
+  --color-warn-soft: #fbf1e2;
+  --color-danger: #b3392c;
+  --color-danger-soft: #fbeae7;
+
+  --shadow-soft: 0 1px 2px rgba(28, 26, 23, 0.04), 0 8px 24px -12px rgba(28, 26, 23, 0.12);
+  --shadow-card: 0 1px 1px rgba(28, 26, 23, 0.03), 0 2px 12px -4px rgba(28, 26, 23, 0.08);
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}

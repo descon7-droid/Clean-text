@@ -1,0 +1,89 @@
+# CleanText
+
+Remove invisible Unicode characters, zero-width characters, non-breaking spaces, soft
+hyphens, bidi/directional controls, control characters and other hidden formatting
+artefacts from text and documents — entirely in your browser.
+
+**Drop in a file or paste text → Clean → Inspect → Copy or download.**
+
+No account, no backend, no uploads. Everything runs locally.
+
+> This tool cleans formatting and invisible characters. It is not designed to alter
+> authorship signals or circumvent AI-detection systems.
+
+## Features
+
+- **Paste text** or **drop a document** (drag-and-drop, click-to-choose, and the
+  standard mobile file picker all work)
+- Supports **TXT, Markdown, HTML, CSV, JSON, DOCX and PDF** (10 MB limit)
+- Deterministic, conservative Unicode cleaning engine — no LLM, no rewriting of prose
+- Format-aware cleaning:
+  - **JSON** — parses and cleans only string values; invalid JSON is never modified
+  - **CSV** — parsed with PapaParse; quoting, escaped quotes and delimiters preserved
+  - **HTML** — parsed with `DOMParser`; tags/attributes/structure preserved, `<script>`
+    and `<style>` content is never touched
+  - **DOCX** — unzipped with JSZip; only text inside Word's `<w:t>` runs (body,
+    headers, footers, footnotes, endnotes, comments) is modified — formatting,
+    styles and tables are preserved
+  - **PDF** — text extracted locally with pdf.js and cleaned; original page layout is
+    not reconstructed, and encrypted/scanned/damaged PDFs are handled gracefully
+- Results panel with a plain-language summary, plus a collapsible **Inspect changes**
+  table (position, code point, name, category, action) capped at 500 rows
+- Advanced cleaning options (collapsed by default, sensible defaults pre-selected)
+- Nothing is uploaded, stored, or sent to any server, analytics platform or AI service
+
+## Tech stack
+
+React + TypeScript + Vite + Tailwind CSS v4, with JSZip (DOCX), pdfjs-dist (PDF) and
+PapaParse (CSV) loaded via dynamic `import()` so they never ship in the initial bundle.
+
+## Project structure
+
+```
+src/
+  components/   UI components (DropZone, TextInput, CleaningOptions, ResultSummary,
+                 Inspector, FileTypeBadge, Header, Footer, ...)
+  lib/           cleanText.ts (core engine), unicode.ts (character tables), and one
+                 cleaner per format: cleanTxt, cleanMarkdown, cleanJson, cleanCsv,
+                 cleanHtml, cleanDocx, cleanPdf — plus fileTypes.ts and download.ts
+  types/         shared CleanResult / Finding / CleaningOptions types
+  tests/         Vitest unit tests
+  App.tsx        page composition and state
+```
+
+## Getting started
+
+Requires Node.js 20+.
+
+```bash
+npm install
+npm run dev       # start the dev server (http://localhost:5173)
+```
+
+### Build & test
+
+```bash
+npm run build      # typecheck (tsc -b) + production build to dist/
+npm run preview     # preview the production build locally
+npm run test         # run the Vitest suite once
+npm run test:watch  # run tests in watch mode
+npm run typecheck   # typecheck only
+npm run lint         # oxlint
+```
+
+## Privacy
+
+CleanText processes everything locally in your browser. Files and pasted text are
+never uploaded to a server, sent to a third-party API, or stored — no `localStorage`,
+`IndexedDB` or cookies are used to persist your content.
+
+## Limitations (by design, for this version)
+
+- PDF processing extracts and cleans text only — it does not recreate the original
+  page layout, and scanned/image-only PDFs are not OCR'd
+- Password-protected and `.docm` (macro-enabled) files are not supported
+- Complex Word formatting may not always round-trip perfectly
+
+## License
+
+Private project — all rights reserved.
