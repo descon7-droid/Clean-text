@@ -65,7 +65,7 @@ export function TextInput({ value, onChange, onClean, onClear, disabled }: TextI
           type="button"
           onClick={onClean}
           disabled={disabled || value.length === 0}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-surface shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
         >
           <Sparkles size={15} aria-hidden="true" />
           Clean text

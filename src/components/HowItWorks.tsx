@@ -19,13 +19,13 @@ const STEPS = [
 export function HowItWorks() {
   return (
     <section aria-labelledby="how-it-works-heading" className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <h2 id="how-it-works-heading" className="text-xl font-semibold tracking-tight text-ink">
+      <h2 id="how-it-works-heading" className="font-display text-2xl font-bold tracking-tight text-ink">
         How it works
       </h2>
       <div className="mt-8 grid gap-6 sm:grid-cols-3">
         {STEPS.map((step) => (
           <div key={step.number} className="rounded-xl border border-border bg-surface p-5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent-soft font-mono text-sm font-semibold text-accent-strong">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime font-mono text-sm font-bold text-ink">
               {step.number}
             </span>
             <h3 className="mt-4 text-sm font-semibold text-ink">{step.title}</h3>

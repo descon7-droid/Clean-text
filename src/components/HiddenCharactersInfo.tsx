@@ -34,7 +34,7 @@ const CARDS = [
 export function HiddenCharactersInfo() {
   return (
     <section aria-labelledby="hidden-characters-heading" className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <h2 id="hidden-characters-heading" className="text-xl font-semibold tracking-tight text-ink">
+      <h2 id="hidden-characters-heading" className="font-display text-2xl font-bold tracking-tight text-ink">
         Common hidden characters
       </h2>
       <p className="mt-2 max-w-2xl text-sm text-muted">
@@ -44,7 +44,7 @@ export function HiddenCharactersInfo() {
         {CARDS.map((card) => (
           <div key={card.unicode} className="rounded-xl border border-border bg-surface p-4">
             <div className="flex items-center gap-2">
-              <span className="rounded-md bg-surface-muted px-1.5 py-0.5 font-mono text-[11px] font-medium text-ink-soft">
+              <span className="rounded-md border border-border-strong bg-surface-muted px-1.5 py-0.5 font-mono text-[11px] font-bold text-ink">
                 {card.unicode}
               </span>
               <h3 className="text-sm font-semibold text-ink">{card.name}</h3>

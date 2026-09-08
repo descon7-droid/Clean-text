@@ -36,27 +36,27 @@ export function ResultSummary({ counts, originalLength, cleanedLength }: ResultS
   const lines = buildMetricLines(counts)
 
   return (
-    <div className="rounded-xl border border-accent-soft bg-accent-soft/60 p-5">
-      <div className="flex items-center gap-2 text-accent-strong">
-        <CheckCircle2 size={18} aria-hidden="true" />
-        <h3 className="text-sm font-semibold">Cleaned successfully</h3>
+    <div className="rounded-xl bg-ink p-5 text-[#f2f4ea]">
+      <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wide text-lime">
+        <CheckCircle2 size={15} aria-hidden="true" />
+        Cleaned successfully
       </div>
 
       {lines.length > 0 ? (
-        <ul className="mt-3 grid gap-1.5 text-sm text-ink-soft sm:grid-cols-2">
+        <ul className="mt-3.5 grid gap-2 text-sm sm:grid-cols-2">
           {lines.map((line) => (
             <li key={line} className="flex items-baseline gap-1.5">
-              <span className="text-accent-strong">•</span>
+              <span className="text-sage">•</span>
               {line}
             </li>
           ))}
         </ul>
       ) : (
-        <p className="mt-3 text-sm text-ink-soft">No hidden characters or artefacts were found.</p>
+        <p className="mt-3.5 text-sm text-[#c8ccbc]">No hidden characters or artefacts were found.</p>
       )}
 
       {originalLength != null && cleanedLength != null && (
-        <div className="mt-4 flex gap-6 border-t border-accent-soft pt-3 font-mono text-xs text-muted">
+        <div className="mt-4 flex gap-6 border-t border-white/10 pt-3 font-mono text-xs text-[#9a9d90]">
           <span>Original: {originalLength.toLocaleString()} chars</span>
           <span>Cleaned: {cleanedLength.toLocaleString()} chars</span>
         </div>

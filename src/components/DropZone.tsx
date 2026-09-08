@@ -87,7 +87,7 @@ export function DropZone({ onFileSelected, selectedFileName, selectedFileSize }:
         {SUPPORTED_FORMATS.map((format) => (
           <span
             key={format.kind}
-            className="rounded-md border border-border bg-surface px-2 py-0.5 font-mono text-[11px] font-medium text-ink-soft"
+            className="rounded-md border border-border-strong bg-surface px-2 py-0.5 font-mono text-[11px] font-bold text-ink"
           >
             {format.label}
           </span>

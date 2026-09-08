@@ -252,31 +252,33 @@ function App() {
 
       <main className="flex-1">
         <section className="mx-auto max-w-3xl px-4 pt-16 pb-8 text-center sm:px-6">
-          <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <span className="inline-block rounded-full bg-lime px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wide text-ink">
+            Drop in. Clean up. Copy or download.
+          </span>
+          <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Clean your text and documents.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted">
             Remove invisible characters, broken formatting and hidden Unicode artefacts before you copy,
             publish or reuse your content.
           </p>
-          <p className="mt-2 text-sm font-medium text-accent-strong">Drop in. Clean up. Copy or download.</p>
-          <p className="mt-5 text-sm font-medium text-ink-soft">Your document stays on your device.</p>
+          <p className="mt-5 text-sm font-semibold text-ink">Your document stays on your device.</p>
         </section>
 
         <section aria-labelledby="cleaner-heading" className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
           <h2 id="cleaner-heading" className="sr-only">
             Clean text or a document
           </h2>
-          <div className="rounded-2xl border border-border bg-surface p-5 shadow-card sm:p-6">
+          <div className="rounded-2xl border-[1.5px] border-border-strong bg-surface p-5 shadow-card sm:p-6">
             <DropZone
               onFileSelected={handleFileSelected}
               selectedFileName={selectedFile?.name}
               selectedFileSize={selectedFile?.size}
             />
 
-            <div className="my-6 flex items-center gap-3 text-xs font-medium text-muted">
+            <div className="my-6 flex items-center gap-3 font-mono text-xs font-bold tracking-wide text-muted">
               <span className="h-px flex-1 bg-border" />
-              OR
+              OR PASTE TEXT
               <span className="h-px flex-1 bg-border" />
             </div>
 
@@ -296,7 +298,7 @@ function App() {
               type="button"
               onClick={handleClean}
               disabled={!canClean}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-surface shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-ink px-4 py-3 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
             >
               {isProcessing ? (
                 <Loader2 size={16} className="animate-spin" aria-hidden="true" />
@@ -337,7 +339,7 @@ function App() {
               />
 
               {output.type === 'docx' ? (
-                <div className="rounded-xl border border-border bg-surface p-5">
+                <div className="rounded-xl border-[1.5px] border-border-strong bg-surface p-5">
                   <p className="text-sm text-ink-soft">
                     Your cleaned Word document is ready. Formatting, styles, tables and structure are
                     preserved — only hidden characters and formatting artefacts inside the text were changed.
@@ -346,14 +348,14 @@ function App() {
                   <button
                     type="button"
                     onClick={() => downloadBlob(output.blob, output.downloadName)}
-                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-surface shadow-soft transition-opacity hover:opacity-90"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90"
                   >
                     <Download size={15} aria-hidden="true" />
                     Download {output.downloadName}
                   </button>
                 </div>
               ) : (
-                <div className="rounded-xl border border-border bg-surface p-5">
+                <div className="rounded-xl border-[1.5px] border-border-strong bg-surface p-5">
                   {output.type === 'pdf' && (
                     <Notice tone="info">
                       PDF text is extracted and cleaned. The original PDF page layout is not recreated.
@@ -376,7 +378,7 @@ function App() {
                         <button
                           type="button"
                           onClick={() => downloadText(output.content, `${output.downloadBaseName}.txt`)}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3.5 py-2 text-sm font-semibold text-surface shadow-soft transition-opacity hover:opacity-90"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90"
                         >
                           <Download size={15} aria-hidden="true" />
                           Download TXT
@@ -394,7 +396,7 @@ function App() {
                       <button
                         type="button"
                         onClick={() => downloadText(output.content, output.downloadName, output.downloadMime)}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-accent px-3.5 py-2 text-sm font-semibold text-surface shadow-soft transition-opacity hover:opacity-90"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90"
                       >
                         <Download size={15} aria-hidden="true" />
                         Download {output.downloadName}

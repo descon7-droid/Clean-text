@@ -1,29 +1,36 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-mono:
-    ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Unbounded', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
-  --color-canvas: #f7f5f0;
+  --color-canvas: #f4ffdc;
   --color-surface: #ffffff;
-  --color-surface-muted: #f1efe8;
-  --color-ink: #1c1a17;
-  --color-ink-soft: #4a453d;
-  --color-muted: #837c6d;
-  --color-border: #e4e0d5;
-  --color-border-strong: #d3cdbe;
-  --color-accent: #2f6d5f;
-  --color-accent-soft: #e6efe9;
-  --color-accent-strong: #234f45;
+  --color-surface-muted: #eaf5d2;
+  --color-ink: #101010;
+  --color-ink-soft: #2b2b2b;
+  --color-muted: #5c6152;
+  --color-border: #d8dbc9;
+  --color-border-strong: #101010;
+
+  /* Brand pop colours, taken directly from the reference board. */
+  --color-lime: #c6ff00;
+  --color-sage: #9be15d;
+
+  /* "accent" = the usable mid/soft/strong trio derived from that board,
+     for borders, tinted backgrounds and text that needs real contrast. */
+  --color-accent: #7cbb3f;
+  --color-accent-soft: #eaf5d2;
+  --color-accent-strong: #3d6b21;
+
   --color-warn: #9a5b12;
   --color-warn-soft: #fbf1e2;
-  --color-danger: #b3392c;
+  --color-danger: #b8422b;
   --color-danger-soft: #fbeae7;
 
-  --shadow-soft: 0 1px 2px rgba(28, 26, 23, 0.04), 0 8px 24px -12px rgba(28, 26, 23, 0.12);
-  --shadow-card: 0 1px 1px rgba(28, 26, 23, 0.03), 0 2px 12px -4px rgba(28, 26, 23, 0.08);
+  --shadow-soft: 0 1px 2px rgba(16, 16, 16, 0.06), 0 8px 24px -12px rgba(16, 16, 16, 0.18);
+  --shadow-card: 4px 4px 0 var(--color-ink);
 }
 
 html {
@@ -41,12 +48,12 @@ body {
 }
 
 ::selection {
-  background: var(--color-accent-soft);
-  color: var(--color-accent-strong);
+  background: var(--color-lime);
+  color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-ink);
   outline-offset: 2px;
   border-radius: 4px;
 }

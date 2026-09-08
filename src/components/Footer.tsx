@@ -6,7 +6,7 @@ export function Footer() {
           This tool cleans formatting and invisible characters. It is not designed to alter authorship
           signals or circumvent AI-detection systems.
         </p>
-        <div className="mt-6 flex flex-col gap-2 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-2 font-mono text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} CleanText. Processing happens locally in your browser.</span>
           <span>No account required.</span>
         </div>
