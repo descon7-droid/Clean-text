@@ -256,11 +256,11 @@ function App() {
             Drop in. Clean up. Copy or download.
           </span>
           <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Clean your text and documents.
+            Text, cleaned. Nothing rewritten.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted">
-            Remove invisible characters, broken formatting and hidden Unicode artefacts before you copy,
-            publish or reuse your content.
+            Strips invisible characters and formatting artefacts from anything you paste or drop —
+            zero-width spaces, stray Unicode, hidden markup. Your words stay exactly yours.
           </p>
           <p className="mt-5 text-sm font-semibold text-ink">Your document stays on your device.</p>
         </section>
