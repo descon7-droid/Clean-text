@@ -11,6 +11,27 @@ No account, no backend, no uploads. Everything runs locally.
 > This tool cleans formatting and invisible characters. It is not designed to alter
 > authorship signals or circumvent AI-detection systems.
 
+## Screenshots
+
+Mobile, light and dark (toggle in the header, persisted locally):
+
+<table>
+<tr>
+<td><img src="docs/screenshots/mobile-light-hero.png" width="280" alt="CleanText hero, mobile, light theme" /></td>
+<td><img src="docs/screenshots/mobile-dark-hero.png" width="280" alt="CleanText hero, mobile, dark theme" /></td>
+</tr>
+</table>
+
+<details>
+<summary>Full scroll — light theme</summary>
+<img src="docs/screenshots/mobile-light-full.png" width="390" alt="CleanText full page, mobile, light theme" />
+</details>
+
+<details>
+<summary>Full scroll — dark theme</summary>
+<img src="docs/screenshots/mobile-dark-full.png" width="390" alt="CleanText full page, mobile, dark theme" />
+</details>
+
 ## Features
 
 - **Paste text** or **drop a document** (drag-and-drop, click-to-choose, and the
@@ -30,6 +51,7 @@ No account, no backend, no uploads. Everything runs locally.
 - Results panel with a plain-language summary, plus a collapsible **Inspect changes**
   table (position, code point, name, category, action) capped at 500 rows
 - Advanced cleaning options (collapsed by default, sensible defaults pre-selected)
+- Light and dark theme, switchable via the header toggle and remembered locally
 - Nothing is uploaded, stored, or sent to any server, analytics platform or AI service
 
 ## Tech stack
