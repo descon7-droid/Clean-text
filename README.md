@@ -13,22 +13,36 @@ No account, no backend, no uploads. Everything runs locally.
 
 ## Screenshots
 
-Mobile, light and dark (toggle in the header, persisted locally):
+Light and dark (toggle in the header, persisted locally):
 
 <table>
 <tr>
-<td><img src="docs/screenshots/mobile-light-hero.png" width="280" alt="CleanText hero, mobile, light theme" /></td>
-<td><img src="docs/screenshots/mobile-dark-hero.png" width="280" alt="CleanText hero, mobile, dark theme" /></td>
+<td><img src="docs/screenshots/desktop-light-hero.png" width="440" alt="CleanText hero, desktop, light theme" /></td>
+<td><img src="docs/screenshots/desktop-dark-hero.png" width="440" alt="CleanText hero, desktop, dark theme" /></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/mobile-light-hero.png" width="220" alt="CleanText hero, mobile, light theme" /></td>
+<td><img src="docs/screenshots/mobile-dark-hero.png" width="220" alt="CleanText hero, mobile, dark theme" /></td>
 </tr>
 </table>
 
 <details>
-<summary>Full scroll — light theme</summary>
+<summary>Full scroll — desktop, light theme</summary>
+<img src="docs/screenshots/desktop-light-full.png" width="800" alt="CleanText full page, desktop, light theme" />
+</details>
+
+<details>
+<summary>Full scroll — desktop, dark theme</summary>
+<img src="docs/screenshots/desktop-dark-full.png" width="800" alt="CleanText full page, desktop, dark theme" />
+</details>
+
+<details>
+<summary>Full scroll — mobile, light theme</summary>
 <img src="docs/screenshots/mobile-light-full.png" width="390" alt="CleanText full page, mobile, light theme" />
 </details>
 
 <details>
-<summary>Full scroll — dark theme</summary>
+<summary>Full scroll — mobile, dark theme</summary>
 <img src="docs/screenshots/mobile-dark-full.png" width="390" alt="CleanText full page, mobile, dark theme" />
 </details>
 
