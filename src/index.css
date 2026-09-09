@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* Enables `dark:` utilities wherever the document (or an ancestor) carries
+   data-theme="dark" — set explicitly by the theme toggle, not by OS preference. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 @theme {
   --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Unbounded', ui-sans-serif, system-ui, sans-serif;
@@ -14,9 +18,13 @@
   --color-border: #d8dbc9;
   --color-border-strong: #101010;
 
-  /* Brand pop colours, taken directly from the reference board. */
+  /* Brand pop colours, taken directly from the reference board. These stay
+     the same hex in both themes — that constancy is the recognisable mark. */
   --color-lime: #c6ff00;
   --color-sage: #9be15d;
+  /* Fixed (never flips): the ink colour to use for text/icons sitting
+     directly on a lime fill, in either theme. */
+  --color-lime-ink: #101010;
 
   /* "accent" = the usable mid/soft/strong trio derived from that board,
      for borders, tinted backgrounds and text that needs real contrast. */
@@ -29,12 +37,55 @@
   --color-danger: #b8422b;
   --color-danger-soft: #fbeae7;
 
+  /* Primary button / badge fill — ink-on-light by default, inverts to
+     lime-on-ink in dark mode (see override block below). */
+  --color-cta: #101010;
+  --color-cta-ink: #c6ff00;
+
+  /* The "always-dark accent card" (e.g. the cleaned-result panel) — a true
+     ink card floating on the light canvas by default; gets its own surface
+     tone in dark mode so it doesn't disappear into the page background. */
+  --color-panel: #101010;
+  --color-panel-ink: #f2f4ea;
+  --color-panel-muted: #9a9d90;
+
   --shadow-soft: 0 1px 2px rgba(16, 16, 16, 0.06), 0 8px 24px -12px rgba(16, 16, 16, 0.18);
-  --shadow-card: 4px 4px 0 var(--color-ink);
+  --shadow-card: 4px 4px 0 var(--color-border-strong);
+}
+
+:root[data-theme='dark'] {
+  --color-canvas: #101010;
+  --color-surface: #1c1e18;
+  --color-surface-muted: #262922;
+  --color-ink: #f4ffdc;
+  --color-ink-soft: #d7dcc8;
+  --color-muted: #9aa08a;
+  --color-border: #33362a;
+  --color-border-strong: #71755c;
+
+  --color-accent: #9be15d;
+  --color-accent-soft: #1f2b17;
+  --color-accent-strong: #c3f2a0;
+
+  --color-warn: #f0b458;
+  --color-warn-soft: #2b2210;
+  --color-danger: #ef8b76;
+  --color-danger-soft: #2e1712;
+
+  --color-cta: #c6ff00;
+  --color-cta-ink: #101010;
+
+  --color-panel: #1c1e18;
+  --color-panel-ink: #f4ffdc;
+  --color-panel-muted: #a3ab90;
 }
 
 html {
   color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
 }
 
 body {
@@ -45,11 +96,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 ::selection {
   background: var(--color-lime);
-  color: var(--color-ink);
+  color: var(--color-lime-ink);
 }
 
 :focus-visible {

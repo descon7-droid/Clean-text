@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Download, Loader2, RotateCcw, Sparkles } from 'lucide-react'
+import { useTheme } from './hooks/useTheme'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { DropZone } from './components/DropZone'
@@ -52,6 +53,7 @@ type OutputState =
     }
 
 function App() {
+  const { theme, toggleTheme } = useTheme()
   const [pastedText, setPastedText] = useState('')
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [selectedKind, setSelectedKind] = useState<FileKind | null>(null)
@@ -248,11 +250,11 @@ function App() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
+      <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="flex-1">
         <section className="mx-auto max-w-3xl px-4 pt-16 pb-8 text-center sm:px-6">
-          <span className="inline-block rounded-full bg-lime px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wide text-ink">
+          <span className="inline-block rounded-full bg-lime px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wide text-lime-ink">
             Drop in. Clean up. Copy or download.
           </span>
           <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
@@ -298,7 +300,7 @@ function App() {
               type="button"
               onClick={handleClean}
               disabled={!canClean}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-ink px-4 py-3 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cta px-4 py-3 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
             >
               {isProcessing ? (
                 <Loader2 size={16} className="animate-spin" aria-hidden="true" />
@@ -348,7 +350,7 @@ function App() {
                   <button
                     type="button"
                     onClick={() => downloadBlob(output.blob, output.downloadName)}
-                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90"
                   >
                     <Download size={15} aria-hidden="true" />
                     Download {output.downloadName}
@@ -378,7 +380,7 @@ function App() {
                         <button
                           type="button"
                           onClick={() => downloadText(output.content, `${output.downloadBaseName}.txt`)}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-3.5 py-2 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90"
                         >
                           <Download size={15} aria-hidden="true" />
                           Download TXT
@@ -396,7 +398,7 @@ function App() {
                       <button
                         type="button"
                         onClick={() => downloadText(output.content, output.downloadName, output.downloadMime)}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-sm font-semibold text-lime shadow-soft transition-opacity hover:opacity-90"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-3.5 py-2 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90"
                       >
                         <Download size={15} aria-hidden="true" />
                         Download {output.downloadName}

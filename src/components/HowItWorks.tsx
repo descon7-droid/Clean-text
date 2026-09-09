@@ -25,7 +25,7 @@ export function HowItWorks() {
       <div className="mt-8 grid gap-6 sm:grid-cols-3">
         {STEPS.map((step) => (
           <div key={step.number} className="rounded-xl border border-border bg-surface p-5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime font-mono text-sm font-bold text-ink">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-lime font-mono text-sm font-bold text-lime-ink">
               {step.number}
             </span>
             <h3 className="mt-4 text-sm font-semibold text-ink">{step.title}</h3>
