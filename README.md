@@ -21,10 +21,18 @@ Light and dark (toggle in the header, persisted locally):
 <td><img src="docs/screenshots/desktop-dark-hero.png" width="440" alt="CleanText hero, desktop, dark theme" /></td>
 </tr>
 <tr>
+<td><img src="docs/screenshots/tablet-landscape-light-hero.png" width="320" alt="CleanText hero, tablet landscape, light theme" /></td>
+<td><img src="docs/screenshots/tablet-landscape-dark-hero.png" width="320" alt="CleanText hero, tablet landscape, dark theme" /></td>
+</tr>
+<tr>
 <td><img src="docs/screenshots/mobile-light-hero.png" width="220" alt="CleanText hero, mobile, light theme" /></td>
 <td><img src="docs/screenshots/mobile-dark-hero.png" width="220" alt="CleanText hero, mobile, dark theme" /></td>
 </tr>
 </table>
+
+Tested at desktop (1280–1920px), tablet portrait and landscape (iPad-sized, 768×1024 /
+1024×768) and mobile (390px) — no layout breakage, no horizontal scroll, no console
+errors at any of them, in either theme.
 
 <details>
 <summary>Full scroll — desktop, light theme</summary>
@@ -34,6 +42,26 @@ Light and dark (toggle in the header, persisted locally):
 <details>
 <summary>Full scroll — desktop, dark theme</summary>
 <img src="docs/screenshots/desktop-dark-full.png" width="800" alt="CleanText full page, desktop, dark theme" />
+</details>
+
+<details>
+<summary>Full scroll — tablet landscape, light theme</summary>
+<img src="docs/screenshots/tablet-landscape-light-full.png" width="700" alt="CleanText full page, tablet landscape, light theme" />
+</details>
+
+<details>
+<summary>Full scroll — tablet landscape, dark theme</summary>
+<img src="docs/screenshots/tablet-landscape-dark-full.png" width="700" alt="CleanText full page, tablet landscape, dark theme" />
+</details>
+
+<details>
+<summary>Full scroll — tablet portrait, light theme</summary>
+<img src="docs/screenshots/tablet-portrait-light-full.png" width="500" alt="CleanText full page, tablet portrait, light theme" />
+</details>
+
+<details>
+<summary>Full scroll — tablet portrait, dark theme (with a result + inspector open)</summary>
+<img src="docs/screenshots/tablet-portrait-dark-full.png" width="500" alt="CleanText full page, tablet portrait, dark theme, showing a cleaned result and the inspector table" />
 </details>
 
 <details>
