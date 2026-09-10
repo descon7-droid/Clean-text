@@ -1,0 +1,20 @@
+#!/bin/sh
+# Runs WordWasher's own cleaning engine over the project's tracked text
+# (every page, doc and code comment) and blocks the commit if it finds
+# anything the tool would flag — hidden Unicode has no business in this
+# repo's own text. See src/tests/text-hygiene.test.ts for the check itself.
+#
+# Installed automatically by `npm install` via the "prepare" script, which
+# runs `git config core.hooksPath .githooks`. To run it manually:
+#   npm run test:hygiene
+
+npx vitest run src/tests/text-hygiene.test.ts --silent
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo ""
+  echo "Pre-commit check failed: hidden/stray-encoding characters found in tracked text."
+  echo "Run 'npm run test:hygiene' for details, fix the file(s), and re-stage."
+fi
+
+exit $status

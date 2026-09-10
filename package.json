@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc -b"
+    "test:hygiene": "vitest run src/tests/text-hygiene.test.ts",
+    "typecheck": "tsc -b",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
     "jszip": "^3.10.1",

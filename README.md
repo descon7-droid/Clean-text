@@ -148,16 +148,28 @@ npm install
 npm run dev       # start the dev server (http://localhost:5173)
 ```
 
+`npm install` also wires up the pre-commit hook below via the `prepare` script.
+
 ### Build & test
 
 ```bash
-npm run build      # typecheck (tsc -b) + production build to dist/
-npm run preview     # preview the production build locally
-npm run test         # run the Vitest suite once
-npm run test:watch  # run tests in watch mode
-npm run typecheck   # typecheck only
-npm run lint         # oxlint
+npm run build          # typecheck (tsc -b) + production build to dist/
+npm run preview         # preview the production build locally
+npm run test             # run the Vitest suite once
+npm run test:watch      # run tests in watch mode
+npm run test:hygiene   # run the text-hygiene check only
+npm run typecheck       # typecheck only
+npm run lint             # oxlint
 ```
+
+### Pre-commit hook: the site washes its own text
+
+`.githooks/pre-commit` runs WordWasher's own cleaning engine
+(`src/tests/text-hygiene.test.ts`) over every tracked page, doc and code
+comment in the repo, and blocks the commit if it finds anything the tool
+would flag — hidden Unicode has no business in this project's own text. It's
+wired up automatically by `npm install` (via `git config core.hooksPath
+.githooks`); no manual setup needed.
 
 ## Privacy
 
