@@ -56,7 +56,7 @@ export function TextInput({ value, onChange, onClean, onClear, disabled }: TextI
           type="button"
           onClick={handlePasteClick}
           disabled={disabled}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-border-strong bg-surface px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent/50 hover:text-ink disabled:opacity-60"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border-strong bg-surface px-3.5 py-2 text-sm font-medium text-ink-soft transition hover:border-accent/50 hover:text-ink active:scale-[0.98] disabled:opacity-60 disabled:active:scale-100"
         >
           <Clipboard size={15} aria-hidden="true" />
           Paste
@@ -65,7 +65,7 @@ export function TextInput({ value, onChange, onClean, onClear, disabled }: TextI
           type="button"
           onClick={onClean}
           disabled={disabled || value.length === 0}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98] disabled:bg-surface-muted disabled:text-muted disabled:shadow-none disabled:active:scale-100"
         >
           <Sparkles size={15} aria-hidden="true" />
           Clean text

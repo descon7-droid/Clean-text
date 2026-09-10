@@ -23,7 +23,7 @@ export function CopyButton({ getText, label = 'Copy cleaned text' }: CopyButtonP
     <button
       type="button"
       onClick={handleCopy}
-      className="inline-flex items-center gap-1.5 rounded-lg border border-border-strong bg-surface px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent/50 hover:text-ink"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-border-strong bg-surface px-3.5 py-2 text-sm font-medium text-ink-soft transition hover:border-accent/50 hover:text-ink active:scale-[0.98]"
     >
       {copied ? (
         <>

@@ -253,14 +253,14 @@ function App() {
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="flex-1">
-        <section className="mx-auto max-w-3xl px-4 pt-16 pb-8 text-center sm:px-6">
+        <section className="mx-auto max-w-4xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24">
           <span className="inline-block rounded-full bg-lime px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wide text-lime-ink">
             Drop in. Clean up. Copy or download.
           </span>
-          <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          <h1 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
             Text, cleaned. Nothing rewritten.
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             Strips invisible characters and formatting artefacts from anything you paste or drop —
             zero-width spaces, stray Unicode, hidden markup. Your words stay exactly yours.
           </p>
@@ -300,7 +300,7 @@ function App() {
               type="button"
               onClick={handleClean}
               disabled={!canClean}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cta px-4 py-3 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90 disabled:opacity-50"
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cta px-4 py-3 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98] disabled:bg-surface-muted disabled:text-muted disabled:shadow-none disabled:active:scale-100"
             >
               {isProcessing ? (
                 <Loader2 size={16} className="animate-spin" aria-hidden="true" />
@@ -350,7 +350,7 @@ function App() {
                   <button
                     type="button"
                     onClick={() => downloadBlob(output.blob, output.downloadName)}
-                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90"
+                    className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98]"
                   >
                     <Download size={15} aria-hidden="true" />
                     Download {output.downloadName}
@@ -380,7 +380,7 @@ function App() {
                         <button
                           type="button"
                           onClick={() => downloadText(output.content, `${output.downloadBaseName}.txt`)}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-3.5 py-2 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-3.5 py-2 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98]"
                         >
                           <Download size={15} aria-hidden="true" />
                           Download TXT
@@ -388,7 +388,7 @@ function App() {
                         <button
                           type="button"
                           onClick={() => downloadText(output.content, `${output.downloadBaseName}.md`, 'text/markdown;charset=utf-8')}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-border-strong bg-surface px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-accent/50 hover:text-ink"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-border-strong bg-surface px-3.5 py-2 text-sm font-medium text-ink-soft transition hover:border-accent/50 hover:text-ink active:scale-[0.98]"
                         >
                           <Download size={15} aria-hidden="true" />
                           Download Markdown
@@ -398,7 +398,7 @@ function App() {
                       <button
                         type="button"
                         onClick={() => downloadText(output.content, output.downloadName, output.downloadMime)}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-3.5 py-2 text-sm font-semibold text-cta-ink shadow-soft transition-opacity hover:opacity-90"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-3.5 py-2 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98]"
                       >
                         <Download size={15} aria-hidden="true" />
                         Download {output.downloadName}
