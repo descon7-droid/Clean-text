@@ -253,68 +253,93 @@ function App() {
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="flex-1">
-        <section className="mx-auto max-w-4xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24">
-          <span className="inline-block rounded-full bg-lime px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wide text-lime-ink">
-            Drop in. Wash up. Copy or download.
+        <section className="mx-auto max-w-5xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24">
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-muted">
+            Text hygiene · Not AI · Not a writing assistant
           </span>
-          <h1 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
-            Words, washed. Nothing rewritten.
+          <h1 className="mt-6 text-balance font-display text-5xl font-bold leading-[0.92] tracking-tight text-ink sm:text-7xl md:text-8xl">
+            <span className="block">Words, washed.</span>
+            <span className="block text-accent-strong dark:text-lime">Nothing rewritten.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             Strips invisible characters and formatting artefacts from anything you paste or drop —
             zero-width spaces, stray Unicode, hidden markup. Your words stay exactly yours.
           </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('cleaner-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                document.getElementById('paste-text')?.focus({ preventScroll: true })
+              }}
+              className="inline-flex items-center gap-2 rounded-lg bg-cta px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98]"
+            >
+              <Sparkles size={16} aria-hidden="true" />
+              Wash text now
+            </button>
+            <span className="font-mono text-xs text-muted">Free · no sign-up · works offline</span>
+          </div>
           <p className="mt-5 text-sm font-semibold text-ink">Your document stays on your device.</p>
         </section>
 
-        <section aria-labelledby="cleaner-heading" className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
+        <section id="cleaner-panel" aria-labelledby="cleaner-heading" className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
           <h2 id="cleaner-heading" className="sr-only">
             Clean text or a document
           </h2>
-          <div className="rounded-2xl border-[1.5px] border-border-strong bg-surface p-5 shadow-card sm:p-6">
-            <DropZone
-              onFileSelected={handleFileSelected}
-              selectedFileName={selectedFile?.name}
-              selectedFileSize={selectedFile?.size}
-            />
-
-            <div className="my-6 flex items-center gap-3 font-mono text-xs font-bold tracking-wide text-muted">
-              <span className="h-px flex-1 bg-border" />
-              OR PASTE TEXT
-              <span className="h-px flex-1 bg-border" />
+          <div className="overflow-hidden rounded-2xl border-[1.5px] border-border-strong bg-surface shadow-card">
+            <div className="flex items-center gap-2 border-b border-border-strong bg-panel px-4 py-2.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-danger" aria-hidden="true" />
+              <span className="h-2.5 w-2.5 rounded-full bg-warn" aria-hidden="true" />
+              <span className="h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" />
+              <span className="ml-2 font-mono text-xs text-panel-muted">
+                wordwasher — {selectedFile ? selectedFile.name : 'no file'}
+              </span>
             </div>
+            <div className="p-5 sm:p-6">
+              <DropZone
+                onFileSelected={handleFileSelected}
+                selectedFileName={selectedFile?.name}
+                selectedFileSize={selectedFile?.size}
+              />
 
-            <TextInput
-              value={pastedText}
-              onChange={handlePastedTextChange}
-              onClean={handleClean}
-              onClear={startOver}
-              disabled={isProcessing || selectedFile !== null}
-            />
-
-            <div className="mt-6">
-              <CleaningOptions options={options} onChange={setOptions} />
-            </div>
-
-            <button
-              type="button"
-              onClick={handleClean}
-              disabled={!canClean}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cta px-4 py-3 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98] disabled:bg-surface-muted disabled:text-muted disabled:shadow-none disabled:active:scale-100"
-            >
-              {isProcessing ? (
-                <Loader2 size={16} className="animate-spin" aria-hidden="true" />
-              ) : (
-                <Sparkles size={16} aria-hidden="true" />
-              )}
-              {isProcessing ? 'Cleaning…' : 'Clean'}
-            </button>
-
-            {error && (
-              <div className="mt-5">
-                <Notice tone="error">{error}</Notice>
+              <div className="my-6 flex items-center gap-3 font-mono text-xs font-bold tracking-wide text-muted">
+                <span className="h-px flex-1 bg-border" />
+                OR PASTE TEXT
+                <span className="h-px flex-1 bg-border" />
               </div>
-            )}
+
+              <TextInput
+                value={pastedText}
+                onChange={handlePastedTextChange}
+                onClean={handleClean}
+                onClear={startOver}
+                disabled={isProcessing || selectedFile !== null}
+              />
+
+              <div className="mt-6">
+                <CleaningOptions options={options} onChange={setOptions} />
+              </div>
+
+              <button
+                type="button"
+                onClick={handleClean}
+                disabled={!canClean}
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cta px-4 py-3 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98] disabled:bg-surface-muted disabled:text-muted disabled:shadow-none disabled:active:scale-100"
+              >
+                {isProcessing ? (
+                  <Loader2 size={16} className="animate-spin" aria-hidden="true" />
+                ) : (
+                  <Sparkles size={16} aria-hidden="true" />
+                )}
+                {isProcessing ? 'Cleaning…' : 'Clean'}
+              </button>
+
+              {error && (
+                <div className="mt-5">
+                  <Notice tone="error">{error}</Notice>
+                </div>
+              )}
+            </div>
           </div>
 
           {output && (
