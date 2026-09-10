@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 export type Theme = 'light' | 'dark'
 
-const STORAGE_KEY = 'cleantext-theme'
+const STORAGE_KEY = 'wordwasher-theme'
 
 function getInitialTheme(): Theme {
   try {

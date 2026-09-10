@@ -255,10 +255,10 @@ function App() {
       <main className="flex-1">
         <section className="mx-auto max-w-4xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24">
           <span className="inline-block rounded-full bg-lime px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wide text-lime-ink">
-            Drop in. Clean up. Copy or download.
+            Drop in. Wash up. Copy or download.
           </span>
           <h1 className="mt-6 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
-            Text, cleaned. Nothing rewritten.
+            Words, washed. Nothing rewritten.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             Strips invisible characters and formatting artefacts from anything you paste or drop —

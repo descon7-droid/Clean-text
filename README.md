@@ -1,14 +1,14 @@
-# CleanText
+# WordWasher
 
 Remove invisible Unicode characters, zero-width characters, non-breaking spaces, soft
 hyphens, bidi/directional controls, control characters and other hidden formatting
 artefacts from text and documents — entirely in your browser.
 
-**Drop in a file or paste text → Clean → Inspect → Copy or download.**
+**wordwasher.com** · **Drop in a file or paste text → Clean → Inspect → Copy or download.**
 
 No account, no backend, no uploads. Everything runs locally.
 
-> This tool cleans formatting and invisible characters. It is not designed to alter
+> WordWasher cleans formatting and invisible characters. It is not designed to alter
 > authorship signals or circumvent AI-detection systems.
 
 ## Screenshots
@@ -17,16 +17,16 @@ Light and dark (toggle in the header, persisted locally):
 
 <table>
 <tr>
-<td><img src="docs/screenshots/desktop-light-hero.png" width="440" alt="CleanText hero, desktop, light theme" /></td>
-<td><img src="docs/screenshots/desktop-dark-hero.png" width="440" alt="CleanText hero, desktop, dark theme" /></td>
+<td><img src="docs/screenshots/desktop-light-hero.png" width="440" alt="WordWasher hero, desktop, light theme" /></td>
+<td><img src="docs/screenshots/desktop-dark-hero.png" width="440" alt="WordWasher hero, desktop, dark theme" /></td>
 </tr>
 <tr>
-<td><img src="docs/screenshots/tablet-landscape-light-hero.png" width="320" alt="CleanText hero, tablet landscape, light theme" /></td>
-<td><img src="docs/screenshots/tablet-landscape-dark-hero.png" width="320" alt="CleanText hero, tablet landscape, dark theme" /></td>
+<td><img src="docs/screenshots/tablet-landscape-light-hero.png" width="320" alt="WordWasher hero, tablet landscape, light theme" /></td>
+<td><img src="docs/screenshots/tablet-landscape-dark-hero.png" width="320" alt="WordWasher hero, tablet landscape, dark theme" /></td>
 </tr>
 <tr>
-<td><img src="docs/screenshots/mobile-light-hero.png" width="220" alt="CleanText hero, mobile, light theme" /></td>
-<td><img src="docs/screenshots/mobile-dark-hero.png" width="220" alt="CleanText hero, mobile, dark theme" /></td>
+<td><img src="docs/screenshots/mobile-light-hero.png" width="220" alt="WordWasher hero, mobile, light theme" /></td>
+<td><img src="docs/screenshots/mobile-dark-hero.png" width="220" alt="WordWasher hero, mobile, dark theme" /></td>
 </tr>
 </table>
 
@@ -37,46 +37,46 @@ errors at any of them, in either theme.
 The full paste → Clean → result flow, showing the metrics summary, cleaned output and
 the Inspect changes table:
 
-<img src="docs/screenshots/result-view-light-full.png" width="800" alt="CleanText result view: cleaned-successfully summary, cleaned output panel with copy/download, and the inspect changes table open" />
+<img src="docs/screenshots/result-view-light-full.png" width="800" alt="WordWasher result view: cleaned-successfully summary, cleaned output panel with copy/download, and the inspect changes table open" />
 
 <details>
 <summary>Full scroll — desktop, light theme</summary>
-<img src="docs/screenshots/desktop-light-full.png" width="800" alt="CleanText full page, desktop, light theme" />
+<img src="docs/screenshots/desktop-light-full.png" width="800" alt="WordWasher full page, desktop, light theme" />
 </details>
 
 <details>
 <summary>Full scroll — desktop, dark theme</summary>
-<img src="docs/screenshots/desktop-dark-full.png" width="800" alt="CleanText full page, desktop, dark theme" />
+<img src="docs/screenshots/desktop-dark-full.png" width="800" alt="WordWasher full page, desktop, dark theme" />
 </details>
 
 <details>
 <summary>Full scroll — tablet landscape, light theme</summary>
-<img src="docs/screenshots/tablet-landscape-light-full.png" width="700" alt="CleanText full page, tablet landscape, light theme" />
+<img src="docs/screenshots/tablet-landscape-light-full.png" width="700" alt="WordWasher full page, tablet landscape, light theme" />
 </details>
 
 <details>
 <summary>Full scroll — tablet landscape, dark theme</summary>
-<img src="docs/screenshots/tablet-landscape-dark-full.png" width="700" alt="CleanText full page, tablet landscape, dark theme" />
+<img src="docs/screenshots/tablet-landscape-dark-full.png" width="700" alt="WordWasher full page, tablet landscape, dark theme" />
 </details>
 
 <details>
 <summary>Full scroll — tablet portrait, light theme</summary>
-<img src="docs/screenshots/tablet-portrait-light-full.png" width="500" alt="CleanText full page, tablet portrait, light theme" />
+<img src="docs/screenshots/tablet-portrait-light-full.png" width="500" alt="WordWasher full page, tablet portrait, light theme" />
 </details>
 
 <details>
 <summary>Full scroll — tablet portrait, dark theme (with a result + inspector open)</summary>
-<img src="docs/screenshots/tablet-portrait-dark-full.png" width="500" alt="CleanText full page, tablet portrait, dark theme, showing a cleaned result and the inspector table" />
+<img src="docs/screenshots/tablet-portrait-dark-full.png" width="500" alt="WordWasher full page, tablet portrait, dark theme, showing a cleaned result and the inspector table" />
 </details>
 
 <details>
 <summary>Full scroll — mobile, light theme</summary>
-<img src="docs/screenshots/mobile-light-full.png" width="390" alt="CleanText full page, mobile, light theme" />
+<img src="docs/screenshots/mobile-light-full.png" width="390" alt="WordWasher full page, mobile, light theme" />
 </details>
 
 <details>
 <summary>Full scroll — mobile, dark theme</summary>
-<img src="docs/screenshots/mobile-dark-full.png" width="390" alt="CleanText full page, mobile, dark theme" />
+<img src="docs/screenshots/mobile-dark-full.png" width="390" alt="WordWasher full page, mobile, dark theme" />
 </details>
 
 ## Features
@@ -101,6 +101,14 @@ the Inspect changes table:
 - Light and dark theme, switchable via the header toggle and remembered locally
 - Nothing is uploaded, stored, or sent to any server, analytics platform or AI service
 
+## Brand
+
+- **Name:** WordWasher — a washer has one job: remove what shouldn't be there, leave
+  the rest exactly as it was. That's the whole product thesis.
+- **Domain:** [wordwasher.com](https://wordwasher.com)
+- **Palette:** Ink `#101010`, Lime `#C6FF00`, Sage `#9BE15D`, Paper `#F4FFDC`
+- **Type:** Unbounded (display), Manrope (body), Space Mono (data / code points)
+
 ## Tech stack
 
 React + TypeScript + Vite + Tailwind CSS v4, with JSZip (DOCX), pdfjs-dist (PDF) and
@@ -111,7 +119,8 @@ PapaParse (CSV) loaded via dynamic `import()` so they never ship in the initial 
 ```
 src/
   components/   UI components (DropZone, TextInput, CleaningOptions, ResultSummary,
-                 Inspector, FileTypeBadge, Header, Footer, ...)
+                 Inspector, FileTypeBadge, Header, Footer, ThemeToggle, ...)
+  hooks/         useTheme.ts (light/dark toggle, persisted to localStorage)
   lib/           cleanText.ts (core engine), unicode.ts (character tables), and one
                  cleaner per format: cleanTxt, cleanMarkdown, cleanJson, cleanCsv,
                  cleanHtml, cleanDocx, cleanPdf — plus fileTypes.ts and download.ts
@@ -119,6 +128,10 @@ src/
   tests/         Vitest unit tests
   App.tsx        page composition and state
 ```
+
+Note: internal module and function names (`cleanText`, `cleanJson`, `CleanResult`, ...)
+describe what the code does and are unrelated to the product name — they're left as-is
+regardless of branding.
 
 ## Getting started
 
@@ -142,7 +155,7 @@ npm run lint         # oxlint
 
 ## Privacy
 
-CleanText processes everything locally in your browser. Files and pasted text are
+WordWasher processes everything locally in your browser. Files and pasted text are
 never uploaded to a server, sent to a third-party API, or stored — no `localStorage`,
 `IndexedDB` or cookies are used to persist your content.
 

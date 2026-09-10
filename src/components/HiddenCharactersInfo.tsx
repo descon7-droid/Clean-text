@@ -38,7 +38,7 @@ export function HiddenCharactersInfo() {
         Common hidden characters
       </h2>
       <p className="mt-2 max-w-2xl text-sm text-muted">
-        A few of the technical artefacts CleanText looks for. You don't need to know any of this to use it.
+        A few of the technical artefacts WordWasher looks for. You don't need to know any of this to use it.
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {CARDS.map((card) => (
