@@ -98,6 +98,8 @@ the Inspect changes table:
 - Results panel with a plain-language summary, plus a collapsible **Inspect changes**
   table (position, code point, name, category, action) capped at 500 rows
 - Advanced cleaning options (collapsed by default, sensible defaults pre-selected)
+- Reference cards for common hidden characters, styled as copyable code snippets
+  (each has a one-click copy button for the character's escape sequence)
 - Light and dark theme, switchable via the header toggle and remembered locally
 - Nothing is uploaded, stored, or sent to any server, analytics platform or AI service
 
@@ -106,8 +108,12 @@ the Inspect changes table:
 - **Name:** WordWasher — a washer has one job: remove what shouldn't be there, leave
   the rest exactly as it was. That's the whole product thesis.
 - **Domain:** [wordwasher.com](https://wordwasher.com)
+- **Hero line:** "Words washed. Nothing rewritten."
 - **Palette:** Ink `#101010`, Lime `#C6FF00`, Sage `#9BE15D`, Paper `#F4FFDC`
 - **Type:** Unbounded (display), Manrope (body), Space Mono (data / code points)
+
+Full positioning, voice, color/contrast rationale and visual-language rules:
+[`docs/brand-brief.md`](docs/brand-brief.md).
 
 ## Tech stack
 
