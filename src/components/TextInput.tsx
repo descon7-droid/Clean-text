@@ -1,16 +1,15 @@
 import { useRef } from 'react'
 import type { ChangeEvent } from 'react'
-import { Clipboard, Sparkles, X } from 'lucide-react'
+import { Clipboard, X } from 'lucide-react'
 
 interface TextInputProps {
   value: string
   onChange: (value: string) => void
-  onClean: () => void
   onClear: () => void
   disabled?: boolean
 }
 
-export function TextInput({ value, onChange, onClean, onClear, disabled }: TextInputProps) {
+export function TextInput({ value, onChange, onClear, disabled }: TextInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const charCount = Array.from(value).length
 
@@ -60,15 +59,6 @@ export function TextInput({ value, onChange, onClean, onClear, disabled }: TextI
         >
           <Clipboard size={15} aria-hidden="true" />
           Paste
-        </button>
-        <button
-          type="button"
-          onClick={onClean}
-          disabled={disabled || value.length === 0}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98] disabled:bg-surface-muted disabled:text-muted disabled:shadow-none disabled:active:scale-100"
-        >
-          <Sparkles size={15} aria-hidden="true" />
-          Clean text
         </button>
         <button
           type="button"

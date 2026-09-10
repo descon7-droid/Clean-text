@@ -253,33 +253,15 @@ function App() {
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="flex-1">
-        <section className="mx-auto max-w-5xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24">
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-muted">
-            Text hygiene · Not AI · Not a writing assistant
-          </span>
-          <h1 className="mt-6 text-balance font-display text-5xl font-bold leading-[0.92] tracking-tight text-ink sm:text-7xl md:text-8xl">
-            <span className="block">Words, washed.</span>
-            <span className="block text-accent-strong dark:text-lime">Nothing rewritten.</span>
+        <section className="mx-auto max-w-6xl px-4 pt-16 pb-10 text-center sm:px-6 sm:pt-24">
+          <h1 className="text-balance font-display text-6xl font-bold leading-[0.92] tracking-tight text-accent-strong dark:text-lime sm:text-7xl md:text-8xl lg:text-9xl">
+            <span className="block">Words washed.</span>
+            <span className="block">Nothing rewritten.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             Strips invisible characters and formatting artefacts from anything you paste or drop —
             zero-width spaces, stray Unicode, hidden markup. Your words stay exactly yours.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button
-              type="button"
-              onClick={() => {
-                document.getElementById('cleaner-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                document.getElementById('paste-text')?.focus({ preventScroll: true })
-              }}
-              className="inline-flex items-center gap-2 rounded-lg bg-cta px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98]"
-            >
-              <Sparkles size={16} aria-hidden="true" />
-              Wash text now
-            </button>
-            <span className="font-mono text-xs text-muted">Free · no sign-up · works offline</span>
-          </div>
-          <p className="mt-5 text-sm font-semibold text-ink">Your document stays on your device.</p>
         </section>
 
         <section id="cleaner-panel" aria-labelledby="cleaner-heading" className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
@@ -311,28 +293,29 @@ function App() {
               <TextInput
                 value={pastedText}
                 onChange={handlePastedTextChange}
-                onClean={handleClean}
                 onClear={startOver}
                 disabled={isProcessing || selectedFile !== null}
               />
 
+              <div className="mt-6 flex justify-center">
+                <button
+                  type="button"
+                  onClick={handleClean}
+                  disabled={!canClean}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-cta px-10 py-4 text-base font-bold uppercase tracking-wide text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98] disabled:bg-surface-muted disabled:text-muted disabled:shadow-none disabled:active:scale-100"
+                >
+                  {isProcessing ? (
+                    <Loader2 size={18} className="animate-spin" aria-hidden="true" />
+                  ) : (
+                    <Sparkles size={18} aria-hidden="true" />
+                  )}
+                  {isProcessing ? 'Cleaning…' : 'Wash text now'}
+                </button>
+              </div>
+
               <div className="mt-6">
                 <CleaningOptions options={options} onChange={setOptions} />
               </div>
-
-              <button
-                type="button"
-                onClick={handleClean}
-                disabled={!canClean}
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cta px-4 py-3 text-sm font-semibold text-cta-ink shadow-soft transition hover:opacity-90 active:scale-[0.98] disabled:bg-surface-muted disabled:text-muted disabled:shadow-none disabled:active:scale-100"
-              >
-                {isProcessing ? (
-                  <Loader2 size={16} className="animate-spin" aria-hidden="true" />
-                ) : (
-                  <Sparkles size={16} aria-hidden="true" />
-                )}
-                {isProcessing ? 'Cleaning…' : 'Clean'}
-              </button>
 
               {error && (
                 <div className="mt-5">
