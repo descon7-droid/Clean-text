@@ -22,6 +22,54 @@ export interface PdfCleanFailure {
 
 export type PdfCleanResult = PdfCleanSuccess | PdfCleanFailure
 
+interface PdfTextRunItem {
+  str: string
+  transform: number[]
+  width: number
+  hasEOL?: boolean
+}
+
+function isTextRunItem(item: unknown): item is PdfTextRunItem {
+  return typeof item === 'object' && item !== null && 'str' in item && 'transform' in item
+}
+
+/**
+ * Reconstructs a page's text from pdf.js's text items. Items are runs of
+ * glyphs, not words or lines — PDF renderers routinely split a run at a
+ * soft hyphen or font change with zero gap between the pieces, so a naive
+ * space-join fabricates a space that was never there (e.g. a soft-hyphenated
+ * "sub|tle" becomes "sub tle"). Only insert a join space when there's an
+ * actual horizontal gap between runs, and use pdf.js's own `hasEOL` flag to
+ * preserve line breaks — otherwise multi-line text collapses onto one line.
+ */
+export function extractPageText(items: unknown[]): string {
+  let text = ''
+  let prevEndX: number | null = null
+
+  for (const raw of items) {
+    if (!isTextRunItem(raw)) continue
+    const x = raw.transform[4]
+
+    if (prevEndX !== null && raw.str) {
+      const gap = x - prevEndX
+      if (gap > 1) {
+        text += ' '
+      }
+    }
+
+    text += raw.str
+
+    if (raw.hasEOL) {
+      text += '\n'
+      prevEndX = null
+    } else {
+      prevEndX = x + raw.width
+    }
+  }
+
+  return text
+}
+
 /**
  * Extracts selectable text from a PDF using pdfjs-dist (loaded via dynamic
  * import so the ~1MB library is never fetched until a PDF is actually
@@ -60,10 +108,7 @@ export async function cleanPdf(
     for (let pageNum = 1; pageNum <= doc.numPages; pageNum++) {
       const page = await doc.getPage(pageNum)
       const content = await page.getTextContent()
-      const pageText = content.items
-        .map((item) => ('str' in item ? item.str : ''))
-        .join(' ')
-      fullText += pageText + '\n\n'
+      fullText += extractPageText(content.items) + '\n\n'
     }
   } catch {
     return {
