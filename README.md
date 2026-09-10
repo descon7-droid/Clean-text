@@ -34,6 +34,11 @@ Tested at desktop (1280–1920px), tablet portrait and landscape (iPad-sized, 76
 1024×768) and mobile (390px) — no layout breakage, no horizontal scroll, no console
 errors at any of them, in either theme.
 
+The full paste → Clean → result flow, showing the metrics summary, cleaned output and
+the Inspect changes table:
+
+<img src="docs/screenshots/result-view-light-full.png" width="800" alt="CleanText result view: cleaned-successfully summary, cleaned output panel with copy/download, and the inspect changes table open" />
+
 <details>
 <summary>Full scroll — desktop, light theme</summary>
 <img src="docs/screenshots/desktop-light-full.png" width="800" alt="CleanText full page, desktop, light theme" />
