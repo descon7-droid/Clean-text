@@ -8,6 +8,10 @@
   --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Unbounded', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Space Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  /* Logo wordmark only (Header) — matches the brand lockup artwork. Not
+     used for page headlines/UI, which stay on Unbounded/Manrope/Space Mono. */
+  --font-script: 'Pacifico', cursive;
+  --font-tech: 'Orbitron', ui-sans-serif, system-ui, sans-serif;
 
   --color-canvas: #f4ffdc;
   --color-surface: #ffffff;
