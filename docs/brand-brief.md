@@ -11,7 +11,8 @@ everything else exactly as it was. That's the whole product thesis in one word �
 no cleverness, no reinterpretation, just mechanical removal of things that don't
 belong (invisible Unicode characters, stray formatting artefacts).
 
-**Domain:** [wordwasher.com](https://wordwasher.com)
+**Domain:** [wordwasher.com](https://wordwasher.com) — `wordwasher.net` is also owned
+and 301-redirects to it (same product, one canonical URL).
 
 ## Positioning
 
@@ -78,6 +79,26 @@ mode), use `accent-strong` instead — a darker green (`#3D6B21` light /
 `#C3F2A0` dark) tuned to pass WCAG AA at the same visual "this is the accent"
 role. This was verified with a relative-luminance contrast check, not eyeballed.
 
+## Logo & icon
+
+The mark is a single-color icon: a checkmark-in-a-circle with four small
+sparkle/star accents, filled solid lime (`#C6FF00`). The checkmark itself is
+**not** a separate layer — it's a negative-space cutout in the same path
+(the circle and checkmark subpaths wind in opposite directions), so it always
+shows whatever's behind it rather than needing a second color. That means it
+adapts automatically to any background with zero extra styling — verified
+against both dark and light canvases before shipping. Source is
+`public/favicon.svg`; the same path is inlined directly in `Header.tsx`.
+
+The full lockup (icon + wordmark + tagline, as a flattened brand asset) also
+exists as a standalone SVG supplied by the client, useful for social profile
+images or anywhere a single flattened graphic is more appropriate than live
+HTML/CSS.
+
+**Do not add a background badge/square behind the icon** — it's already a
+complete, self-contained mark. The old checkmark-in-a-rounded-square badge
+was a placeholder and has been fully replaced.
+
 ## Type
 
 - **Unbounded** (display) — bold, condensed, used only for the hero headline
@@ -87,12 +108,28 @@ role. This was verified with a relative-luminance contrast check, not eyeballed.
 - **Manrope** (body) — all paragraph and UI copy.
 - **Space Mono** (data / code) — code points, file names, the "OR PASTE TEXT"
   divider, terminal-window chrome, and the hidden-character reference cards.
+- **Pacifico** (script) — the header wordmark ("WordWasher") only, matching
+  the client-supplied logo lockup. Deliberately scoped to the logo mark, not
+  the rest of the UI — see Visual language below for why.
+- **Orbitron Bold** — used for the tagline within the flattened logo lockup
+  artwork. Loaded and tokened (`--font-tech`) for future use but **not yet
+  applied** anywhere in the live page; confirm placement before using it.
 
 ## Visual language
 
-- **Dark-first, light available.** Both themes are first-class — verified for
-  WCAG contrast, not just dark-mode-as-afterthought. Toggle lives in the header,
-  persisted to `localStorage`.
+- **Dark by default, light available.** Every first-time visitor gets dark
+  regardless of OS preference (not `prefers-color-scheme` — an unconditional
+  default). A synchronous inline script in `index.html` sets it before first
+  paint so there's no flash of the light theme. Both themes are still
+  first-class — verified for WCAG contrast, not dark-mode-as-afterthought —
+  and the toggle in the header persists an explicit choice to `localStorage`
+  once someone makes one.
+- **Script logotype, technical UI — deliberately two different voices.** The
+  Pacifico wordmark in the header is warmer and more playful than the rest of
+  the product. That's intentional and scoped: it's the *logo*, not a signal to
+  soften the page. Headlines, buttons, and body copy stay on Unbounded/
+  Manrope/Space Mono, which carry the "precise technical tool" register this
+  brand is built on.
 - **Terminal / utility chrome.** The paste panel is framed like a code editor
   window: traffic-light dots, a title bar showing the active file name
   (`wordwasher — no file` / `wordwasher — <filename>`). This reinforces "this is

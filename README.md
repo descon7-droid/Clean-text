@@ -13,7 +13,8 @@ No account, no backend, no uploads. Everything runs locally.
 
 ## Screenshots
 
-Light and dark (toggle in the header, persisted locally):
+Dark by default for every visitor; light is available via the header toggle,
+which then persists that choice locally:
 
 <table>
 <tr>
@@ -107,10 +108,17 @@ the Inspect changes table:
 
 - **Name:** WordWasher — a washer has one job: remove what shouldn't be there, leave
   the rest exactly as it was. That's the whole product thesis.
-- **Domain:** [wordwasher.com](https://wordwasher.com)
+- **Domain:** [wordwasher.com](https://wordwasher.com) (`wordwasher.net` redirects to it)
 - **Hero line:** "Words washed. Nothing rewritten."
 - **Palette:** Ink `#101010`, Lime `#C6FF00`, Sage `#9BE15D`, Paper `#F4FFDC`
-- **Type:** Unbounded (display), Manrope (body), Space Mono (data / code points)
+- **Type:** Unbounded (display), Manrope (body), Space Mono (data / code points),
+  Pacifico (header wordmark only)
+- **Icon:** a single-color checkmark-in-a-circle with sparkle accents
+  (`public/favicon.svg`) — the checkmark is a negative-space cutout in the
+  same path, so it adapts to whatever background it sits on with no extra
+  styling
+- **Default theme:** dark, for every visitor, regardless of OS preference
+  (switchable via the header toggle, which then persists that choice)
 
 Full positioning, voice, color/contrast rationale and visual-language rules:
 [`docs/brand-brief.md`](docs/brand-brief.md).
