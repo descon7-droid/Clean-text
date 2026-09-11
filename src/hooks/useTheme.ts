@@ -11,10 +11,10 @@ function getInitialTheme(): Theme {
   } catch {
     // localStorage unavailable (private browsing, etc.) — fall through.
   }
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return 'dark'
 }
 
-/** Explicit light/dark toggle, persisted locally. Not tied to OS preference after first load. */
+/** Explicit light/dark toggle, persisted locally. Defaults to dark regardless of OS preference. */
 export function useTheme(): { theme: Theme; toggleTheme: () => void } {
   const [theme, setTheme] = useState<Theme>(getInitialTheme)
 
